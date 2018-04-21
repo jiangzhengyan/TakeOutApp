@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias "xiaotakeout"
+            keyPassword "123456"
+            storeFile file("takeout.jks")
+            storePassword "123456"
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_7
+            targetCompatibility JavaVersion.VERSION_1_7
+        }
+        applicationId "com.xiaozhang.takeout"
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.0.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.jakewharton:butterknife:5.1.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    // picasso异步加载图片
+    compile 'com.nineoldandroids:library:2.4.0'
+    //低版本动画兼容jar包
+    compile 'com.daimajia.slider:library:1.1.5@aar'
+    //包含轮播图自动轮训的自定义控件,aar可以包含res(layout.图片)资源文件jar包
+    compile 'com.flipboard:bottomsheet-commons:1.5.1'
+    compile 'com.flipboard:bottomsheet-core:1.5.1'
+    compile 'se.emilsjolander:stickylistheaders:2.7.0'
+    compile 'com.android.support:design:24.1.1'
+    //tabLayout
+    compile 'se.emilsjolander:stickylistheaders:2.7.0'
+    compile files('libs/MobCommons-2016.1201.1839.jar')
+    compile files('libs/MobTools-2016.1201.1839.jar')
+    compile name: 'SMSSDK-2.1.3', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.3', ext: 'aar'
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+    compile files('libs/alipaySdk-20161129.jar')
+    compile files('libs/Amap_2DMap_V2.9.2_20161026.jar')
+    compile files('libs/AMap_Location_V2.4.1_20160414.jar')
+    compile files('libs/AMap_Search_V3.6.1_20161122.jar')
+    compile files('libs/Volley.jar')
+    compile files('libs/jpush-android_v3.0.1.jar')
+    compile files('libs/jcore-android_v1.1.0.jar')
+}

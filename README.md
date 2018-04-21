@@ -1,5 +1,3 @@
-# MyTestDemo
+# 青大外卖
 
-这是专供测试的demo
-里面有网络请求
-okhttp
+ mvp模式开发的

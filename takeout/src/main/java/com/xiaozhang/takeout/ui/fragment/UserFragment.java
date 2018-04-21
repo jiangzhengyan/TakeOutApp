@@ -19,11 +19,17 @@ import com.xiaozhang.takeout.ui.activity.AddAddressActivity;
 import com.xiaozhang.takeout.ui.activity.AddressListActivity;
 import com.xiaozhang.takeout.ui.activity.LoginActivity;
 
+import org.json.JSONObject;
+
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.data.JPushLocalNotification;
 
 /**
  * Created by zhangxiao on 2018/3/5.

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rl_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="22dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="#fff"
+                android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_update_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+
+        android:layout_alignTop="@+id/linearLayout"
+        android:src="@drawable/ic_launcher"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_update_title"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="18dp"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_update_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单信息"
+            android:singleLine="true"
+            android:layout_marginTop="2dp"
+            android:textColor="#404040"
+            android:textSize="13sp"
+
+            />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_update_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="订单成功,开始配送"
+            android:textColor="#535353"
+            android:textSize="12sp"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

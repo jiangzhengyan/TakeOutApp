@@ -19,6 +19,7 @@ import com.xiaozhang.takeout.model.bean.ReceiptAddressBean;
 import com.xiaozhang.takeout.model.bean.Seller;
 import com.xiaozhang.takeout.model.dao.ReceiptAddressDao;
 import com.xiaozhang.takeout.util.CountPriceFormater;
+import com.xiaozhang.takeout.util.NotifyUtils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -136,6 +137,7 @@ public class ConfirmOrderActivity extends BaseActivity {
     public void onClick(View view){
         switch (view.getId()){
             case R.id.tvSubmit:
+                NotifyUtils.notifyUpdate(ConfirmOrderActivity.this, "订单信息", "外卖订单预订成功了", 100);
                 Intent intent = new Intent(this, PayOnlineActivity.class);
                 //因为在ConfirmOrderActivity页面中需要显示购买的商品,和总金额,所以需要传递运费和购买商品集合到下一个界面
                 intent.putExtra("seller",seller);//用于计算运费

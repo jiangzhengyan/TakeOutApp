@@ -22,6 +22,7 @@ import com.xiaozhang.takeout.R;
 import com.xiaozhang.takeout.model.bean.GoodsInfo;
 import com.xiaozhang.takeout.model.bean.Seller;
 import com.xiaozhang.takeout.util.CountPriceFormater;
+import com.xiaozhang.takeout.util.NotifyUtils;
 import com.xiaozhang.takeout.util.OrderInfoUtil2_0;
 import com.xiaozhang.takeout.util.PayResult;
 
@@ -122,10 +123,12 @@ public class PayOnlineActivity extends BaseActivity {
                         Toast.makeText(PayOnlineActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
                         //给公司的服务器发送请求,告知服务器客户端是支付成功了,服务器你也改一下支付状态吧
                         //好的,我的状态改过了,你给用户显示这个支付成功的结果吧
+                        NotifyUtils.notifyUpdate(PayOnlineActivity.this, "支付信息", "外卖订单支付成功", 101);
                         setResult(888);
                         finish();
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        NotifyUtils.notifyUpdate(PayOnlineActivity.this, "支付信息", "外卖订单支付失败", 102);
                         Toast.makeText(PayOnlineActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
                     }
                     break;

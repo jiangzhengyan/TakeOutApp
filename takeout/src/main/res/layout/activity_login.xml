@@ -66,6 +66,8 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:textSize="14sp"
+            android:hint="请输入手机号"
             android:inputType="phone"
             android:maxLength="11"/>
 
@@ -77,7 +79,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
-            android:background="@color/main_blue"
+            android:background="@drawable/selector_btn_press_bule_bg"
             android:padding="6dp"
             android:text="获取验证码"
             android:textColor="#FFF"
@@ -85,11 +87,18 @@
 
 
     </LinearLayout>
-
+    <EditText
+        android:id="@+id/et_user_code"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:hint="验证码"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <EditText
@@ -100,6 +109,8 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:textSize="14sp"
+            android:hint="请输入初始密码"
             android:inputType="numberPassword"/>
 
 
@@ -117,36 +128,26 @@
             android:visibility="invisible"/>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_user_code"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="15dp"
-        android:textSize="14sp"
-        android:hint="验证码"/>
-
-    <TextView
-        android:id="@+id/login"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/main_blue"
-        android:gravity="center"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:text="登陆"
-        android:textColor="#FFF"
-        android:textSize="18sp"
-        />
+        android:layout_height="0dp"
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/thridlogin"
-        />
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/selector_btn_press_bule_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="登陆"
+            android:layout_alignParentBottom="true"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            />
+
+
+    </RelativeLayout>
+
 </LinearLayout>

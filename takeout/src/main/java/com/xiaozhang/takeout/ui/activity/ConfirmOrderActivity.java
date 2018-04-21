@@ -140,7 +140,7 @@ public class ConfirmOrderActivity extends BaseActivity {
                 //因为在ConfirmOrderActivity页面中需要显示购买的商品,和总金额,所以需要传递运费和购买商品集合到下一个界面
                 intent.putExtra("seller",seller);//用于计算运费
                 intent.putExtra("shopCartList", (Serializable) goodsInfoList);
-                startActivity(intent);
+                startActivityForResult(intent,888);
                 break;
             case R.id.rl_location:
                 Intent intentAddress = new Intent(this, AddressListActivity.class);
@@ -151,6 +151,9 @@ public class ConfirmOrderActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==888){
+            finish();
+        }
         if (data!=null && requestCode == 100 && resultCode == 101){
             ReceiptAddressBean receiptAddressBean
                     = (ReceiptAddressBean) data.getSerializableExtra("receiptAddress");

@@ -61,6 +61,7 @@ public class LoginActivity extends BaseActivity {
                     tvUserCode.setText("稍后再发("+time--+")");
                     break;
                 case RESET_TIME:
+                    tvUserCode.setEnabled(true);
                     tvUserCode.setText("重新发送");
                     time = 60;
                     break;
@@ -154,9 +155,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void sendCode() {
+
         //如果手机号码输入合法,再做一下操作
         String phone = etUserPhone.getText().toString().trim();
         if (SMSUtil.isMobileNO(phone)){
+            tvUserCode.setEnabled(false);
         //发送验证码短信到指定的手机
             SMSSDK.getVerificationCode("86",phone, new OnSendMessageHandler() {
                 @Override
@@ -180,6 +183,7 @@ public class LoginActivity extends BaseActivity {
                     }
                     //在循环结束后,再次做60秒的计数
                     handler.sendEmptyMessage(RESET_TIME);
+
                 }
             }.start();
         }else{

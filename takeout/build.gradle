@@ -18,8 +18,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_7
         }
         applicationId "com.xiaozhang.takeout"
-        minSdkVersion 15
-        targetSdkVersion 19
+        minSdkVersion 19
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
 

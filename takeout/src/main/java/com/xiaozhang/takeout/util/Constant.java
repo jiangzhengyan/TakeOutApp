@@ -4,7 +4,7 @@ package com.xiaozhang.takeout.util;
  * Created by zhangxiao on 2018/3/5.
  */
 public class Constant {
-    public static final String BASEURL = "http://192.168.30.90:8080/TakeoutService/";
+    public static final String BASEURL = "http://192.168.30.38:8080/TakeoutService/";
 
     public static final String BUSINESS = "business";
     public static final String HOME = "home";

@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -24,7 +25,6 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        mHandler.postDelayed(mRunnable, mRemainTime);
         showContacts();
     }
 
@@ -51,7 +51,7 @@ public class SplashActivity extends BaseActivity {
             // 申请一个（或多个）权限，并提供用于回调返回的获取码（用户定义）
             ActivityCompat.requestPermissions( this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_PHONE_STATE}, BAIDU_READ_PHONE_STATE);
         }else{
-            //init();
+        getPermission();
         }
     }
 
@@ -65,10 +65,12 @@ public class SplashActivity extends BaseActivity {
             case BAIDU_READ_PHONE_STATE:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // 获取到权限，作相应处理（调用定位SDK应当确保相关权限均被授权，否则可能引起定位失败）
-                    //init();
+                   getPermission();
                 } else {
                     // 没有获取到权限，做特殊处理
                     Toast.makeText(getApplicationContext(), "获取位置权限失败，请手动开启", Toast.LENGTH_SHORT).show();
+                    mHandler.postDelayed(mRunnable, mRemainTime);
+
                 }
                 break;
             default:
@@ -76,18 +78,25 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    private void getPermission() {
+        mHandler.postDelayed(mRunnable, mRemainTime);
+
+    }
 
 
     private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
+            Log.e(TAG, "run: " );
             intentStart();
         }
     };
-
+    private static final String TAG = "SplashActivity";
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.e(TAG, "onDestroy: " );
+
         if (mHandler != null) {
             mHandler.removeCallbacks(mRunnable);
         }

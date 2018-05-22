@@ -48,7 +48,7 @@ public class SelectAddressActivity extends BaseActivity implements LocationSourc
     private AMapLocationClientOption mLocationOption;
     private int currentPage = 0;// 当前页面，从0开始计数
     private PoiSearch.Query query;// Poi查询条件类
-    private String city = "北京市";
+    private String city = "青岛市";
     private LatLonPoint lp ;
     private PoiSearch poiSearch;
     private PoiResult poiResult; // poi返回的结果

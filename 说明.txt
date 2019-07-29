@@ -1,0 +1,3 @@
+TakeOut 是android studio项目
+
+TakeoutService 是后台项目
